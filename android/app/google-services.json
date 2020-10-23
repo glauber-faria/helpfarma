@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "743377744454",
+    "firebase_url": "https://helpfarma-99c2b.firebaseio.com",
+    "project_id": "helpfarma-99c2b",
+    "storage_bucket": "helpfarma-99c2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743377744454:android:19805c2ed46f8b34c85047",
+        "android_client_info": {
+          "package_name": "com.helpfarma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743377744454-2kpfq972v1m9rrt8m3gu329htdb6v04s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxHWRSbysUHDoHxeX2Z_t0s7CfgyCfXJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743377744454-2kpfq972v1m9rrt8m3gu329htdb6v04s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
