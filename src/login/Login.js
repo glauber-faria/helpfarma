@@ -1,9 +1,31 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, Button, Image, AppRegistry, TouchableOpacity} from 'react-native';
+import { View, Text, TextInput, StyleSheet, Button, Image, AppRegistry, TouchableOpacity, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import firebase from '@react-native-firebase/app';
+const teste = () =>{
+}
 class Login extends Component{
+    state = {
+        email: '',
+        password:'',
+        isAuthenticated: false
+    }
+    
+    login = async() =>{
+        const { email, password} = this.state;
+       try{
+         await firebase.auth().signInWithEmailAndPassword(email, password);
+            this.setState({isAuthenticated: true});
+            Alert.alert(""+user);
+        }
+        catch(err){
+            Alert.alert(""+err);
+        }
+
+        
+    }
+    
     render(){
         return(
             <View>
@@ -26,6 +48,8 @@ class Login extends Component{
                         blurOnSubmit={true}
                         inlineImageLeft='logo'
                         placeholder={'Username'}
+                        value={this.state.email}
+                        onChangeText={email => this.setState({email})}
 
                     />
                 </View>
@@ -40,16 +64,19 @@ class Login extends Component{
                         autoCompleteType={"password"}
                         blurOnSubmit={true}
                         placeholder={'Password'}
+                        value={this.state.password}
+                        onChangeText={password => this.setState({password})}
 
                     />
                 </View>
                 <View style={[styles.container2]}>
                     <TouchableOpacity
                         style={[styles.btn]}
+                        onPress={this.login}
                     >
                         <Text style={[styles.text]}>LOGIN</Text>
                     </TouchableOpacity>
-                      
+                      {this.state.isAuthenticated? <Text>logado</Text>: <Text>erro</Text>}
                 </View>
                 <View style={[styles.container2]}>
                     <TouchableOpacity
