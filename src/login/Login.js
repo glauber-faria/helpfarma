@@ -3,8 +3,8 @@ import { Component } from 'react';
 import { View, Text, TextInput, StyleSheet, Button, Image, AppRegistry, TouchableOpacity, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import firebase from '@react-native-firebase/app';
-const teste = () =>{
-}
+import auth from '@react-native-firebase/auth';
+
 class Login extends Component{
     state = {
         email: '',
@@ -14,17 +14,23 @@ class Login extends Component{
     
     login = async() =>{
         const { email, password} = this.state;
-       try{
-         await firebase.auth().signInWithEmailAndPassword(email, password);
+        try{
+            const user = await firebase.auth()
+                .signInWithEmailAndPassword(email, password);
+
             this.setState({isAuthenticated: true});
-            Alert.alert(""+user);
+            console.log(user);
         }
         catch(err){
-            Alert.alert(""+err);
+            this.setState({isAuthenticated: false});
+            console.log(err);
+
         }
+
 
         
     }
+
     
     render(){
         return(
@@ -44,10 +50,10 @@ class Login extends Component{
                     />
                     <TextInput
                         style={[styles.input]}
-                        autoCompleteType={"username"}
+                        autoCompleteType={'email'}
                         blurOnSubmit={true}
                         inlineImageLeft='logo'
-                        placeholder={'Username'}
+                        placeholder={'Email'}
                         value={this.state.email}
                         onChangeText={email => this.setState({email})}
 
@@ -68,6 +74,12 @@ class Login extends Component{
                         onChangeText={password => this.setState({password})}
 
                     />
+        
+                    
+                </View>
+                <View>
+                    {this.state.isAuthenticated? <Text>Logado</Text>:<Text>Erro</Text>}
+
                 </View>
                 <View style={[styles.container2]}>
                     <TouchableOpacity
@@ -76,7 +88,6 @@ class Login extends Component{
                     >
                         <Text style={[styles.text]}>LOGIN</Text>
                     </TouchableOpacity>
-                      {this.state.isAuthenticated? <Text>logado</Text>: <Text>erro</Text>}
                 </View>
                 <View style={[styles.container2]}>
                     <TouchableOpacity

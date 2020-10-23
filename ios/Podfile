@@ -10,6 +10,8 @@ target 'helpfarma' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNFBAuth', :path => '../node_modules/@react-native-firebase/auth'
+
   target 'helpfarmaTests' do
     inherit! :complete
     # Pods for testing
