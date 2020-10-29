@@ -1,12 +1,16 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, Button, Image, AppRegistry, TouchableOpacity, Alert} from 'react-native';
+import { View, Text, TextInput, StyleSheet, Button, Image, AppRegistry, TouchableOpacity, Alert, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 import firebase from '@react-native-firebase/app';
 import auth from '@react-native-firebase/auth';
 
-class Login extends Component{
-    state = {
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack'; 
+
+export default function Login({navigation}){
+    /*state = {
         email: '',
         password:'',
         isAuthenticated: false
@@ -24,17 +28,13 @@ class Login extends Component{
         catch(err){
             this.setState({isAuthenticated: false});
             console.log(err);
-
         }
-
-
-        
     }
-
+*/
     
-    render(){
+
         return(
-            <View>
+            <View style={[styles.container0]}>
                 <View style={[styles.container3]}>
                     <Image
                         style={[styles.logo]}
@@ -54,8 +54,8 @@ class Login extends Component{
                         blurOnSubmit={true}
                         inlineImageLeft='logo'
                         placeholder={'Email'}
-                        value={this.state.email}
-                        onChangeText={email => this.setState({email})}
+                       // value={this.state.email}
+                        //onChangeText={[email => this.setState({email}), () => navigation.navigate('Home')]}
 
                     />
                 </View>
@@ -69,22 +69,19 @@ class Login extends Component{
                         secureTextEntry={true}
                         autoCompleteType={"password"}
                         blurOnSubmit={true}
-                        placeholder={'Password'}
-                        value={this.state.password}
-                        onChangeText={password => this.setState({password})}
-
+                        placeholder={'Senha'}
+                        //value={this.state.password}
+                        //onChangeText={password => this.setState({password})}
                     />
-        
-                    
                 </View>
                 <View>
-                    {this.state.isAuthenticated? <Text>Logado</Text>:<Text>Erro</Text>}
+                   {/*{this.state.isAuthenticated? <Text>Logado</Text>:<Text>Erro</Text>}*/}
 
                 </View>
                 <View style={[styles.container2]}>
                     <TouchableOpacity
                         style={[styles.btn]}
-                        onPress={this.login}
+                        onPress={() => navigation.replace('Home')}
                     >
                         <Text style={[styles.text]}>LOGIN</Text>
                     </TouchableOpacity>
@@ -101,24 +98,29 @@ class Login extends Component{
             </View>
         );
     };
-}
+
 const styles = StyleSheet.create({
+    container0: {
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center'
+    },
     container: {
         flexDirection:'row',
         justifyContent: "center",
         alignItems: 'center',
-        marginTop: 20,
         borderWidth:1
     },
     container2: {
         justifyContent: "space-around",
-        alignItems: 'stretch',
-        marginTop: 70,
+        alignItems: 'center',
+        marginTop: 60,
+        
     },
     container3: {
         justifyContent: "center",
         alignItems: 'center',
-        marginTop: 80,
+        marginTop: 40,
         marginBottom:10
     },
     container4: {
@@ -180,6 +182,7 @@ const styles = StyleSheet.create({
         height:40,
         justifyContent:'center',
         alignItems:'center',
+        width:290,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -220,4 +223,3 @@ const styles = StyleSheet.create({
         letterSpacing: 1
     },
   });
-export default Login;
