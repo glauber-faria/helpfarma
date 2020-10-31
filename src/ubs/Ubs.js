@@ -6,7 +6,7 @@ import dados from './dados.json'
 export default function Home({navigation}){
     const listagemUBS = (i) => {
         return(
-            <TouchableOpacity style={[styles.btn1]}>
+            <TouchableOpacity style={[styles.btn1]} onPress={() => navigation.navigate("dadosPessoais")}>
                     <View  style={[styles.container2]}>
                         <View>
                             <Image

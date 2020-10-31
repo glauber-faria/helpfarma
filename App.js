@@ -7,6 +7,7 @@ import Login from './src/login/Login';
 import Home from './src/home/Home';
 import Ubs from './src/ubs/Ubs';
 import NewUbs from './src/ubs/NewUbs';
+import DadosPessoais from './src/farmaceutico/dadosPessoais';
 
 import Teste from './src/teste';
 
@@ -31,6 +32,7 @@ render(){
                   <Stack.Screen name="teste" component={Teste} options={{ headerShown: true}}/>
                   <Stack.Screen name="listagemUBS" component={Ubs} options={{headerShown: false}}/>
                   <Stack.Screen name="newUbs" component={NewUbs} options={{headerShown: false}}/>
+                  <Stack.Screen name="dadosPessoais" component={DadosPessoais} options={{headerShown: false}}/>
               </Stack.Navigator>
             </NavigationContainer>
       );
