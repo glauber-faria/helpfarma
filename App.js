@@ -8,6 +8,12 @@ import Home from './src/home/Home';
 import Ubs from './src/ubs/Ubs';
 import NewUbs from './src/ubs/NewUbs';
 import DadosPessoais from './src/farmaceutico/dadosPessoais';
+import RecuperarSenha from './src/login/RecuperarSenha';
+import AvaliarFarmacia from './src/avaliacaoFarmacia/avaliacaoFarmacia';
+import ListagemRegistroFotografico from './src/registroFotografico/Listagem';
+import Imagens from './src/registroFotografico/Imagens';
+
+
 
 import Teste from './src/teste';
 
@@ -33,6 +39,10 @@ render(){
                   <Stack.Screen name="listagemUBS" component={Ubs} options={{headerShown: false}}/>
                   <Stack.Screen name="newUbs" component={NewUbs} options={{headerShown: false}}/>
                   <Stack.Screen name="dadosPessoais" component={DadosPessoais} options={{headerShown: false}}/>
+                  <Stack.Screen name="recuperarSenha" component={RecuperarSenha} options={{headerShown: false}}/>
+                  <Stack.Screen name="avaliacaoFarmacia" component={AvaliarFarmacia} options={{headerShown: false}}/>
+                  <Stack.Screen name="listagemRegistroFotografico" component={ListagemRegistroFotografico} options={{headerShown: false}}/>
+                  <Stack.Screen name="imagens" component={Imagens} options={{headerShown: false}}/>
               </Stack.Navigator>
             </NavigationContainer>
       );
