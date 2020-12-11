@@ -1,29 +1,23 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import dados from './dados.json'
+import dados from './imagens.json'
+
 
 export default function Home({navigation}){
     const listagemUBS = (i) => {
         return(
-            <TouchableOpacity style={[styles.btn1]} onPress={() => navigation.navigate("dadosPessoais")}>
+                <TouchableOpacity style={[styles.btn1]} onPress={() => navigation.navigate("dadosPessoais")}>
                     <View  style={[styles.container2]}>
-                        <View>
-                            <Image
+                        <Image
                                 source={require('../img/ubs.png')}
                                 style={[styles.img]}
                             />
-                        </View>
-                        <View>
-                            <Text style={[styles.text]}>{dados[i]?.nome}</Text>
-                            <Text style={[styles.text1]}>CNES: {dados[i]?.cnes}</Text>
-                            <Text style={[styles.text1]}>Tel: {dados[i]?.tel}</Text>
-                        </View>
                     </View>
-                    <View>
-                        <Text style={[styles.text1]}>{dados[i]?.obs}</Text>
-                    </View>
+                    <Text style={[styles.text]}>{dados[i]?.nome}</Text>
+
                 </TouchableOpacity>
+            
         );
          
     };
@@ -37,25 +31,30 @@ export default function Home({navigation}){
                 
                 <View style={[styles.container1]}>
                 <View style={[styles.container3]}>
-                <TouchableOpacity style={[styles.btn2]} onPress={() => navigation.goBack()}>
-                    <Icon
-                        name="angle-left" size={40} color="white"
-                        style={[styles.icon]}    
-                    />
-                </TouchableOpacity>
-                <TouchableOpacity style={[styles.btn2]} onPress={() => navigation.navigate('newUbs')}>
-                    <Icon
-                        name="plus" size={30} color="white"
-                        style={[styles.icon]}
-                    />
-                </TouchableOpacity>
+                    <TouchableOpacity style={[styles.btn2]} onPress={() => navigation.goBack()}>
+                        <Icon
+                            name="angle-left" size={40} color="white"
+                            style={[styles.icon]}    
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.btn2]} onPress={() => navigation.navigate('newUbs')}>
+                        <Icon
+                            name="plus" size={30} color="white"
+                            style={[styles.icon]}
+                        />
+                    </TouchableOpacity>
                 
-            </View>
-                    <Text style={[styles.text2]}>SELECIONE UBS</Text>
-                    {listagemUBS(0)}
-                    {listagemUBS(1)}
-                    {listagemUBS(2)}
-                    {listagemUBS(3)}
+                </View>
+                    <Text style={[styles.text2]}>Fotos Salvas</Text>
+                    <View  style={[styles.container2]}>
+                        {listagemUBS(0)}
+                        {listagemUBS(1)}
+                    </View>
+                    <View  style={[styles.container2]}>
+                        {listagemUBS(2)}
+                        {listagemUBS(3)}
+                    </View>
+
                 </View>
             </View>
           </View>
@@ -87,11 +86,13 @@ export default function Home({navigation}){
     btn1:{
         marginBottom:15,
         justifyContent:"center",
+        alignItems:'center',
         borderRadius:10,
         backgroundColor:'white',
         paddingHorizontal:25,
-        width:330,
-        height:158,
+        width:160,
+        height:150,
+        marginRight:10,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -110,8 +111,7 @@ export default function Home({navigation}){
     text:{
         color:'black',
         fontSize:14,
-        fontWeight:'bold',
-        marginBottom:6,
+        textAlign:'center'
     },
     text1:{
         color:'#A4A4A4',
@@ -121,15 +121,15 @@ export default function Home({navigation}){
     text2:{
         color:'white',
         fontWeight:'bold',
-        fontSize:30,
-        marginBottom:5,
+        fontSize:25,
+        marginBottom:15,
         textAlign:'justify',
     },
     img:{
-        width: 70,
-        height: 70,
+        width: 80,
+        height: 80,
         marginRight:10,
-        marginBottom:10,
+        marginBottom:3,
         borderRadius:10,
     },
 

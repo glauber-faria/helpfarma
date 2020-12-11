@@ -9,15 +9,8 @@ export default function Home({navigation}){
             <TouchableOpacity style={[styles.btn1]} onPress={() => navigation.navigate("dadosPessoais")}>
                     <View  style={[styles.container2]}>
                         <View>
-                            <Image
-                                source={require('../img/ubs.png')}
-                                style={[styles.img]}
-                            />
-                        </View>
-                        <View>
-                            <Text style={[styles.text]}>{dados[i]?.nome}</Text>
-                            <Text style={[styles.text1]}>CNES: {dados[i]?.cnes}</Text>
-                            <Text style={[styles.text1]}>Tel: {dados[i]?.tel}</Text>
+                            <Text style={[styles.text]}>{"Registro fotográfico " + dados[i]?.id}</Text>
+                            <Text style={[styles.text1]}>Data: {dados[i]?.data}</Text>
                         </View>
                     </View>
                     <View>
@@ -51,7 +44,7 @@ export default function Home({navigation}){
                 </TouchableOpacity>
                 
             </View>
-                    <Text style={[styles.text2]}>SELECIONE UBS</Text>
+                    <Text style={[styles.text2]}>Registros Fotográficos</Text>
                     {listagemUBS(0)}
                     {listagemUBS(1)}
                     {listagemUBS(2)}
@@ -91,7 +84,7 @@ export default function Home({navigation}){
         backgroundColor:'white',
         paddingHorizontal:25,
         width:330,
-        height:158,
+        height:80,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -121,7 +114,7 @@ export default function Home({navigation}){
     text2:{
         color:'white',
         fontWeight:'bold',
-        fontSize:30,
+        fontSize:25,
         marginBottom:5,
         textAlign:'justify',
     },

@@ -1,62 +1,56 @@
 import * as React from 'react';
+import {Component} from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView,TextInput, Alert, Button} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack'; 
 
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+class DadosPessoais extends Component{
+    state = {
+        nome:'Glauber',
+        sexo:'M',
+        dataNascimento:'23/02/1999',
+        cor:'Branca',
+        estadoCivil:'Solteiro',
+        escolaridade:{
+            curso:'Tecnologia em Sistemas de computação',
+            grau:'Técnologo',
+            status:'Completo'
+        }
+    }
+    render(){
+        return(
+            <View>
+                <Text>{this.state.nome}</Text>
+                <Text>{this.state.sexo}</Text>
+                <Text>{this.state.dataNascimento}</Text>
+                <Text>{this.state.cor}</Text>
+                <Text>{this.state.escolaridade.curso}</Text>
+                <Text>{this.state.escolaridade.grau}</Text>
+                <Text>{this.state.escolaridade.status}</Text>
+                    <TouchableOpacity><Text>Opção1</Text></TouchableOpacity>
+                    <TouchableOpacity><Text>Opção2</Text></TouchableOpacity>
+                
 
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
-  },
-];
-
-const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
-);
-
-const App = () => {
-  const renderItem = ({ item }) => (
-    <Item title={item.title} />
-  );
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-      />
-    </SafeAreaView>
-  );
+            </View>
+        );
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
-  item: {
-    backgroundColor: '#f9c2ff',
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-  },
-  title: {
-    fontSize: 32,
-  },
-});
 
-export default App;
+const app = ()=>{
+    return(
+        <>
+            <DadosPessoais/>
+        </>
+    );
+}
+const styles = StyleSheet.create(
+    {
+        container: {
+            flex:1,
+            backgroundColor:'#1579B2'
+            
+        },
+    }
+);
+export default app;

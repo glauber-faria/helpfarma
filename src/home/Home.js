@@ -36,6 +36,7 @@ export default function Home({navigation}){
                     <Icon
                         name="capsules" size={50} color="#1579B2"
                         style={[styles.icon]}
+                        onPress={() => navigation.navigate('listagemUBS') }
                     />
                     <Text style={[styles.text]}>Entrevista com o responsável pela dispensa</Text>
                     
@@ -46,6 +47,8 @@ export default function Home({navigation}){
                     <Icon
                         name="notes-medical" size={50} color="#1579B2"
                         style={[styles.icon]}
+                        onPress={() => navigation.navigate('listagemUBS') }
+
                     />
                     <Text style={[styles.text]}>Avaliação da Farmácia</Text>
                     

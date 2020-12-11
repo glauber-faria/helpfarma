@@ -89,6 +89,7 @@ export default function Login({navigation}){
                 <View style={[styles.container2]}>
                     <TouchableOpacity
                         style={[styles.btn2]}
+                        onPress={() => navigation.navigate('recuperarSenha')}
                     >
                         <Text style={[styles.text4]}>Esqueceu sua senha?</Text>
                     </TouchableOpacity>

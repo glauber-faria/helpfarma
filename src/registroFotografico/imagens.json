@@ -1,0 +1,23 @@
+[
+    {
+        "id":4,
+        "nome":"Dispensa de medicamentos",
+        "descricao":"..."
+    },
+    {
+        "id":3,
+        "nome":"Estoque",
+        "descricao":"..."
+    },
+    {
+        "id":2,
+        "nome":"Sala de descarte",
+        "descricao":"..."
+    },
+    {
+        "id":1,
+        "nome":"Sala de medicamentos",
+        "descricao":"..."
+    },
+
+]

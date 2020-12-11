@@ -1,0 +1,11 @@
+{       
+        "nome":"",
+        "sexo":{
+            "data":["Masculino", "Feminino", "Outro(a)"],
+            "checked":0
+        },
+        "dataNascimento": "23/02/1999",
+        "cor":"Branca",
+        "estadoCivil":"Solteiro",
+        "escolaridade":"Alfabetizado"
+}
